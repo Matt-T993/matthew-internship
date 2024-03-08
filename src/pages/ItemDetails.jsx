@@ -11,6 +11,7 @@ const ItemDetails = () => {
 
   useEffect(() => {
     const getItemDetails = async () => {
+      setLoading(true);
       try {
         const data = await Service.fetchItemDetails(nftId);
         setLoading(false);

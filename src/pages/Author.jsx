@@ -14,6 +14,7 @@ const Author = () => {
 
   useEffect(() => {
     const getAuthor = async () => {
+      setLoading(true);
       try {
         const data = await Service.fetchAuthor(authorId);
         setLoading(false);

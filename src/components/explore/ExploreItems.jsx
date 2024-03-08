@@ -20,6 +20,7 @@ const ExploreItems = () => {
   };
 
   const getExploreItems = async () => {
+    setLoading(true);
     try {
       const data = await Service.fetchExploreItems();
       setLoading(false);

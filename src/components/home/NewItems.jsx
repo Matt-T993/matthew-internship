@@ -9,6 +9,7 @@ const NewItems = () => {
   const [loading, setLoading] = useState();
 
   const getNewItems = async () => {
+    setLoading(true);
     try {
       const data = await Service.fetchNewItems();
       setLoading(false);

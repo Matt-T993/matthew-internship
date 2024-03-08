@@ -7,6 +7,7 @@ const TopSellers = () => {
   const [topSellers, setTopSellers] = useState([]);
   const [loading, setLoading] = useState();
   const getTopSellers = async () => {
+    setLoading(true);
     try {
       const data = await Service.fetchTopSellers();
       setLoading(false);

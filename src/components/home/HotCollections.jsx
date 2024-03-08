@@ -10,6 +10,7 @@ const HotCollections = () => {
   const [hotCollections, setHotCollections] = useState([]);
   const [loading, setLoading] = useState(true);
   const getHotCollections = async () => {
+    setLoading(true);
     try {
       const data = await Service.fetchHotCollections();
       setLoading(false);
