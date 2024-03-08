@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EthImage from "../images/ethereum.svg";
 import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
-import nftImage from "../images/nftImage.jpg";
 import Service from "../service/service";
 import Skeleton from "../components/UI/Skeleton";
 
@@ -11,21 +9,20 @@ const ItemDetails = () => {
   const [itemDetails, setItemDetials] = useState("");
   const [loading, setLoading] = useState();
 
-  const getItemDetails = async () => {
-    try {
-      const data = await Service.fetchItemDetails(nftId);
-      setLoading(false);
-      console.log(data);
-      setItemDetials(data);
-    } catch (error) {
-      console.error("Error getting item detail", error);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const getItemDetails = async () => {
+      try {
+        const data = await Service.fetchItemDetails(nftId);
+        setLoading(false);
+        console.log(data);
+        setItemDetials(data);
+      } catch (error) {
+        console.error("Error getting item detail", error);
+        setLoading(false);
+      }
+    };
     getItemDetails();
-  }, []);
+  }, [nftId]);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
