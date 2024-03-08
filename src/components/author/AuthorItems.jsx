@@ -38,7 +38,7 @@ const AuthorItems = ({ author, loading }) => {
                           </div>
                         </div>
                       </div>
-                      <Link to="/item-details">
+                      <Link to={`/item-details/${nft.nftId}`}>
                         <img
                           src={nft.nftImage}
                           className="lazy nft__item_preview"
@@ -47,7 +47,7 @@ const AuthorItems = ({ author, loading }) => {
                       </Link>
                     </div>
                     <div className="nft__item_info">
-                      <Link to="/item-details">
+                      <Link to={`/item-details/${nft.nftId}`}>
                         <h4>{nft.title}</h4>
                       </Link>
                       <div className="nft__item_price">{nft.price} ETH</div>
@@ -57,7 +57,6 @@ const AuthorItems = ({ author, loading }) => {
                       </div>
                     </div>
                   </div>
-                  >
                 </div>
               ))
             : new Array(8).fill(0).map((_, index) => (
@@ -78,7 +77,6 @@ const AuthorItems = ({ author, loading }) => {
                     <div className="nft__item_info">
                       <Skeleton width="70%" height={20} />
                       <div className="nft__item_price">
-                        {" "}
                         <Skeleton width="40%" height={20} />
                       </div>
                       <div className="nft__item_like">
