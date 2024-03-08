@@ -57,6 +57,17 @@ const Service = {
       throw error;
     }
   },
+  fetchItemDetails: async (nftId) => {
+    try {
+      const response = await axios.get(
+        `${base_url}/itemDetails?nftId=${nftId}`
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error requesting item details", error);
+      throw error;
+    }
+  },
 };
 
 export default Service;
