@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import Service from "../../service/service";
-import Timer from "../UI/Timer";
 import Skeleton from "../UI/Skeleton";
 import Card from "../UI/Card";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const instialExploreItems = 8;
 const nextRow = 4;
 
 const ExploreItems = () => {
+  AOS.init();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState([]);
   const [next, setNext] = useState(instialExploreItems);

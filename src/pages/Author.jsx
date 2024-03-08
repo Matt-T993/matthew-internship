@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
 import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
+
 import Service from "../service/service";
 import Skeleton from "../components/UI/Skeleton";
 
@@ -12,20 +12,20 @@ const Author = () => {
   const [loading, setLoading] = useState();
   const [follow, setFollow] = useState(true);
 
-  const getAuthor = async () => {
-    try {
-      const data = await Service.fetchAuthor(authorId);
-      setLoading(false);
-      setAuthor(data);
-    } catch (error) {
-      console.error("Error getting author detail", error);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const getAuthor = async () => {
+      try {
+        const data = await Service.fetchAuthor(authorId);
+        setLoading(false);
+        setAuthor(data);
+      } catch (error) {
+        console.error("Error getting author detail", error);
+        setLoading(false);
+      }
+    };
+
     getAuthor();
-  }, []);
+  }, [authorId]);
 
   return (
     <div id="wrapper">
